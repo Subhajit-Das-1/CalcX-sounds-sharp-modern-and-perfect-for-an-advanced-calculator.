@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Advanced Web Calculator</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="min-h-screen flex items-center justify-center bg-zinc-900">
+  <div class="w-full max-w-md mx-auto p-4 rounded-2xl shadow-2xl bg-zinc-800 calculator">
+    <!-- Calculator Name -->
+    <div class="text-3xl font-extrabold text-center mb-2 bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-500 bg-clip-text text-transparent tracking-wide select-none" style="letter-spacing:0.1em;">CalcX</div>
+    <!-- Display -->
+    <div id="display" class="mb-4 h-20 flex items-end justify-end font-mono text-white bg-zinc-900 rounded-xl px-4 py-2 overflow-x-auto transition-all duration-200 select-text shadow-inner whitespace-nowrap scrollbar-thin scrollbar-thumb-zinc-700 scrollbar-track-zinc-900">0</div>
+    <!-- Buttons -->
+    <div class="grid grid-cols-4 gap-3">
+      <!-- Row 1 -->
+      <button class="col-span-1 py-3 rounded-lg bg-zinc-700 text-cyan-400 font-bold text-lg shadow hover:bg-zinc-600 active:btn-press transition-all" data-action="function" data-value="sin">sin</button>
+      <button class="col-span-1 py-3 rounded-lg bg-zinc-700 text-cyan-400 font-bold text-lg shadow hover:bg-zinc-600 active:btn-press transition-all" data-action="function" data-value="cos">cos</button>
+      <button class="col-span-1 py-3 rounded-lg bg-zinc-700 text-cyan-400 font-bold text-lg shadow hover:bg-zinc-600 active:btn-press transition-all" data-action="function" data-value="tan">tan</button>
+      <button class="col-span-1 py-3 rounded-lg bg-red-600 text-white font-bold text-lg shadow hover:bg-red-500 active:btn-press transition-all" data-action="clear">C</button>
+      <!-- Row 2 -->
+      <button class="col-span-1 py-3 rounded-lg bg-zinc-700 text-cyan-400 font-bold text-lg shadow hover:bg-zinc-600 active:btn-press transition-all" data-action="function" data-value="log">log</button>
+      <button class="col-span-1 py-3 rounded-lg bg-zinc-700 text-cyan-400 font-bold text-lg shadow hover:bg-zinc-600 active:btn-press transition-all" data-action="function" data-value="sqrt">√</button>
+      <button class="col-span-1 py-3 rounded-lg bg-zinc-700 text-cyan-400 font-bold text-lg shadow hover:bg-zinc-600 active:btn-press transition-all" data-action="function" data-value="pow">xʸ</button>
+      <button class="col-span-1 py-3 rounded-lg bg-orange-500 text-white font-bold text-lg shadow hover:bg-orange-400 active:btn-press transition-all" data-action="operator" data-value="/">÷</button>
+      <!-- Row 3 -->
+      <button class="col-span-1 py-3 rounded-lg bg-zinc-700 text-cyan-400 font-bold text-lg shadow hover:bg-zinc-600 active:btn-press transition-all" data-action="function" data-value="percent">%</button>
+      <button class="col-span-1 py-3 rounded-lg bg-zinc-700 text-white font-bold text-lg shadow hover:bg-zinc-600 active:btn-press transition-all" data-action="delete">DEL</button>
+      <button class="col-span-1 py-3 rounded-lg bg-zinc-700 text-white font-bold text-lg shadow hover:bg-zinc-600 active:btn-press transition-all" data-action="number" data-value="(">(</button>
+      <button class="col-span-1 py-3 rounded-lg bg-orange-500 text-white font-bold text-lg shadow hover:bg-orange-400 active:btn-press transition-all" data-action="operator" data-value="*">×</button>
+      <!-- Row 4 -->
+      <button class="col-span-1 py-3 rounded-lg bg-zinc-700 text-white font-bold text-lg shadow hover:bg-zinc-600 active:btn-press transition-all" data-action="number" data-value="7">7</button>
+      <button class="col-span-1 py-3 rounded-lg bg-zinc-700 text-white font-bold text-lg shadow hover:bg-zinc-600 active:btn-press transition-all" data-action="number" data-value="8">8</button>
+      <button class="col-span-1 py-3 rounded-lg bg-zinc-700 text-white font-bold text-lg shadow hover:bg-zinc-600 active:btn-press transition-all" data-action="number" data-value="9">9</button>
+      <button class="col-span-1 py-3 rounded-lg bg-orange-500 text-white font-bold text-lg shadow hover:bg-orange-400 active:btn-press transition-all" data-action="operator" data-value="-">-</button>
+      <!-- Row 5 -->
+      <button class="col-span-1 py-3 rounded-lg bg-zinc-700 text-white font-bold text-lg shadow hover:bg-zinc-600 active:btn-press transition-all" data-action="number" data-value="4">4</button>
+      <button class="col-span-1 py-3 rounded-lg bg-zinc-700 text-white font-bold text-lg shadow hover:bg-zinc-600 active:btn-press transition-all" data-action="number" data-value="5">5</button>
+      <button class="col-span-1 py-3 rounded-lg bg-zinc-700 text-white font-bold text-lg shadow hover:bg-zinc-600 active:btn-press transition-all" data-action="number" data-value="6">6</button>
+      <button class="col-span-1 py-3 rounded-lg bg-orange-500 text-white font-bold text-lg shadow hover:bg-orange-400 active:btn-press transition-all" data-action="operator" data-value="+">+</button>
+      <!-- Row 6 -->
+      <button class="col-span-1 py-3 rounded-lg bg-zinc-700 text-white font-bold text-lg shadow hover:bg-zinc-600 active:btn-press transition-all" data-action="number" data-value="1">1</button>
+      <button class="col-span-1 py-3 rounded-lg bg-zinc-700 text-white font-bold text-lg shadow hover:bg-zinc-600 active:btn-press transition-all" data-action="number" data-value="2">2</button>
+      <button class="col-span-1 py-3 rounded-lg bg-zinc-700 text-white font-bold text-lg shadow hover:bg-zinc-600 active:btn-press transition-all" data-action="number" data-value="3">3</button>
+      <button class="row-span-2 col-span-1 py-3 rounded-lg bg-green-600 text-white font-bold text-lg shadow hover:bg-green-500 active:btn-press transition-all flex flex-col justify-center items-center" data-action="equals" style="grid-row: span 2 / span 2;">=</button>
+      <!-- Row 7 -->
+      <button class="col-span-2 py-3 rounded-lg bg-zinc-700 text-white font-bold text-lg shadow hover:bg-zinc-600 active:btn-press transition-all" data-action="number" data-value="0">0</button>
+      <button class="col-span-1 py-3 rounded-lg bg-zinc-700 text-white font-bold text-lg shadow hover:bg-zinc-600 active:btn-press transition-all" data-action="number" data-value=".">.</button>
+      <button class="col-span-1 py-3 rounded-lg bg-zinc-700 text-white font-bold text-lg shadow hover:bg-zinc-600 active:btn-press transition-all" data-action="number" data-value=",">,</button>
+      <button class="col-span-1 py-3 rounded-lg bg-zinc-700 text-white font-bold text-lg shadow hover:bg-zinc-600 active:btn-press transition-all" data-action="number" data-value=")">)</button>
+    </div>
+    <!-- Footer -->
+    <div class="mt-4 text-center text-zinc-400 text-xs">&copy; 2025 CalcX</div>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html> 
